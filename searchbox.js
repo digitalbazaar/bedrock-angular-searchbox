@@ -30,9 +30,11 @@ module.filter('brSearchFilters', function() {
       var splitComponent = component.split(':', 2);
       console.log('split: :',  splitComponent);
       if (!output[splitComponent[0]]) {
-        output[splitComponent[0]] = []
+        output[splitComponent[0]] = splitComponent[1];
+        return;
       }
-      output[splitComponent[0]].push(splitComponent[1]);
+      output[splitComponent[0]] =
+        output[splitComponent[0]] + ',' + splitComponent[1];
     });
     return output;
   } 
