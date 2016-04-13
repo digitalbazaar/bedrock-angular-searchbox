@@ -1,0 +1,24 @@
+<div class="container">
+    <form ng-submit="$ctrl.submitSearch()">
+      <div class="row">
+        <div class="col-xs-2">
+          <label>{{$ctrl.options.searchbox.label}}</label>
+        </div>
+        <div class="col-xs-10">
+          <input type="text" ng-model="$ctrl.searchText"></input>
+          <button type="submit">Search</button>
+        </div>
+      </div>
+      <div ng-repeat="additionalInput in $ctrl.options.additional track by $index">
+        <div class="row">
+          <div class="col-xs-2">
+            <label>{{additionalInput.label}}</label>
+          </div>
+          <div class="col-xs-10">
+            <input type="text" ng-model="$ctrl.searchFields[additionalInput.prefix]" placeholder="{{additionalInput.placeholder}}" ng-change="$ctrl.searchFieldChanged(additionalInput.prefix)"></input>
+          </div>
+        </div>
+		  </div>
+    </form>
+  </div>
+</div>

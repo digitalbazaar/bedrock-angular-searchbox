@@ -3,16 +3,18 @@
  */
 define([
   'angular',
-  './searchbox-directive',
+  './searchbox-component'
 ], function(
   angular,
-  searchboxDirective) {
+  searchboxComponent) {
 
 'use strict';
 
 var module = angular.module('bedrock.searchbox', []);
 
-module.directive(searchboxDirective);
+Array.prototype.slice.call(arguments, 1).forEach(function(dep) {
+  dep(module);
+});
 
 module.filter('brSearchFilters', function() {
   return function(input) {
@@ -26,7 +28,7 @@ module.filter('brSearchFilters', function() {
     // Regex makes sure quotes are balanced. Don't ask
     input.split(/ +(?=(?:(?:[^"]*"){2})*[^"]*$)/g).forEach(function(component) {
       console.log(component);
-      component = component.replace(/"/g, "") // Remove quotes 
+      component = component.replace(/"/g, ""); // Remove quotes
       var splitComponent = component.split(':', 2);
       console.log('split: :',  splitComponent);
       if (!output[splitComponent[0]]) {
@@ -37,7 +39,7 @@ module.filter('brSearchFilters', function() {
         output[splitComponent[0]] + ',' + splitComponent[1];
     });
     return output;
-  } 
+  }
 });
 
 return module.name;
