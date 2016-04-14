@@ -1,4 +1,4 @@
-define([], function() {
+define(['angular'], function(angular) {
 
 'use strict';
 
@@ -15,41 +15,42 @@ function register(module) {
 }
 
 /* @ngInject */
-function Ctrl($filter) {
+function Ctrl($filter, $scope, brAlertService) {
   var self = this;
+  self.searchOptions = {};
   self.searchText = '';
-  var options = {
+  var defaultOptions = {
     searchbox: {
-      label: 'Credential Search'
+      label: 'Search'
     },
     additional: [
-      {
-        label: 'Issued',
-        placeholder: 'monday, tuesday',
-        prefix: 'issued'
-      },
-      {
-        label: 'From',
-        placeholder: 'sally, bob',
-        prefix: 'from'
-      }
+      // {
+      //   label: 'Issued',
+      //   placeholder: 'monday, tuesday',
+      //   prefix: 'issued'
+      // },
+      // {
+      //   label: 'From',
+      //   placeholder: 'sally, bob',
+      //   prefix: 'from'
+      // }
     ]
   };
-  self.options = options;
+  angular.extend(self.searchOptions, self.options, defaultOptions);
   self.searchFields = {};
-  self.options.additional.forEach(function(field) {
+  self.searchOptions.additional.forEach(function(field) {
     self.searchFields[field.prefix] = '';
   });
-  console.log($filter('brSearchFilters')("foo:bar baz:qux"));
 
   self.submitSearch = function() {
     var filteredSearch = $filter('brSearchFilters')(self.searchText.trim());
-    console.log(filteredSearch);
+    if('error' in filteredSearch) {
+      return brAlertService.add('error', filteredSearch.error);
+    }
     self.searchAction({output: filteredSearch});
   };
 
   self.searchFieldChanged = function(field) {
-    console.log(self.searchFields[field]);
     self.searchText = "";
     for (var key in self.searchFields) {
       if (self.searchFields[key] === "") {
