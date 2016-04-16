@@ -7,6 +7,7 @@
     "bower_components"
   ],
   "dependencies": {
-    "bedrock-angular": "^2.0.0"
+    "bedrock-angular": "^2.0.0",
+    "bedrock-angular-form": "^2.1.2"
   }
 }
