@@ -4,9 +4,7 @@
 define([
   'angular',
   './searchbox-component'
-], function(
-  angular,
-  searchboxComponent) {
+], function(angular) {
 
 'use strict';
 
@@ -35,7 +33,6 @@ module.filter('brSearchFilters', function() {
         output = {error: 'Invalid search syntax near: ' + component};
         break;
       }
-      var splitComponent = {};
       var property = component.substr(0, component.indexOf(':'));
       if(property === 'is') {
         property = 'filter';

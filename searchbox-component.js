@@ -15,7 +15,7 @@ function register(module) {
 }
 
 /* @ngInject */
-function Ctrl($filter, $scope, brAlertService) {
+function Ctrl($filter, brAlertService) {
   var self = this;
   self.searchOptions = {};
   self.searchText = '';
