@@ -1,6 +1,6 @@
 {
   "name": "bedrock-angular-searchbox",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "moduleType": ["amd"],
   "main": "./main.js",
   "ignore": [
