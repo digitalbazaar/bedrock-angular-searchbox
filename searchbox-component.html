@@ -1,12 +1,12 @@
 <div class="row" style="margin: 0">
   <form class="form-inline" ng-submit="$ctrl.submitSearch()">
     <br-input br-model="$ctrl.searchText"
+      br-input-ng-disabled="$ctrl.loading"
       br-options="{
         icon: 'search',
         placeholder: $ctrl.searchOptions.searchbox.placeholder,
         inline: true,
-        columns: {input: 'col-xs-10'},
-        disabled: {{$ctrl.loading}}
+        columns: {input: 'col-xs-10'}
       }">
     </br-input>
     <span class="col-xs-1" style="padding: 0 0 0 5px">
