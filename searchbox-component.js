@@ -47,6 +47,7 @@ function Ctrl($filter, $scope, brAlertService) {
   });
 
   self.submitSearch = function() {
+    brAlertService.clear();
     var filteredSearch = $filter('brSearchFilters')(self.searchText.trim());
     if('error' in filteredSearch) {
       return brAlertService.add('error', filteredSearch.error);
