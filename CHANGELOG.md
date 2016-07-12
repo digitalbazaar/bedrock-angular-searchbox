@@ -1,6 +1,9 @@
 # bedrock-angular-searchbox ChangeLog
 
-## [Unreleased]
+## 1.0.1 - 2016-07-12
+
+### Changed
+- Clear alerts on new search.
 
 ## [1.0.0] - 2016-04-29
 
