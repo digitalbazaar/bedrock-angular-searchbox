@@ -13,16 +13,26 @@ function register(module) {
     },
     controller: Ctrl,
     templateUrl:
-      requirejs.toUrl('bedrock-angular-searchbox/searchbox-component.html')
+      requirejs.toUrl('bedrock-angular-searchbox/searchbox-component.html'),
+    transclude: {
+      help: '?brSearchboxHelp'
+    }
   });
 }
 
 /* @ngInject */
-function Ctrl($filter, $scope, brAlertService) {
+function Ctrl($filter, $scope, $transclude, brAlertService) {
   var self = this;
   self.loading = false;
   self.searchOptions = {};
   self.searchText = '';
+  self.display = {
+    helpButton: false,
+    helpText: false
+  };
+
+  self.display.helpButton = $transclude.isSlotFilled('help');
+
   var defaultOptions = {
     searchbox: {
       placeholder: 'Search...'

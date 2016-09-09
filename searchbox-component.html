@@ -1,16 +1,17 @@
 <div class="row" style="margin: 0">
-  <form class="form-inline" ng-submit="$ctrl.submitSearch()">
+  <form class="form-inline">
     <br-input br-model="$ctrl.searchText"
       br-input-ng-disabled="$ctrl.loading"
       br-options="{
         icon: 'search',
         placeholder: $ctrl.searchOptions.searchbox.placeholder,
         inline: true,
-        columns: {input: 'col-xs-10'}
+        columns: {input: $ctrl.display.helpButton ? 'col-xs-9' : 'col-xs-10'}
       }">
     </br-input>
     <span class="col-xs-1" style="padding: 0 0 0 5px">
-      <button type="submit" class="btn btn-primary" style="width: 100%"
+      <button class="btn btn-primary" style="width: 100%"
+        ng-click="$ctrl.submitSearch()"
         ng-disabled="$ctrl.loading">Search</button>
     </span>
     <span class="col-xs-1" style="padding: 0 0 0 5px">
@@ -18,8 +19,14 @@
         ng-click="$ctrl.searchText=''"
         ng-disabled="$ctrl.loading">Clear</button>
     </span>
+    <span ng-if="$ctrl.display.helpButton" class="col-xs-1" style="padding: 0 0 0 5px">
+      <button class="btn btn-default" style="width: 100%"
+        ng-click="$ctrl.display.helpText=!$ctrl.display.helpText"
+        ng-disabled="$ctrl.loading">Help</button>
+    </span>
   </form>
 </div>
+<div ng-if="$ctrl.display.helpText" ng-transclude="help"></div>
 <p></p>
 <form class="form-horizontal">
   <fieldset>
