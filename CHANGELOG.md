@@ -1,5 +1,10 @@
 # bedrock-angular-searchbox ChangeLog
 
+## 1.1.0 - 2016-09-12
+
+### Added
+- Transclude and display help text.
+
 ## 1.0.1 - 2016-07-12
 
 ### Changed
