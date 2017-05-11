@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
 define(['angular'], function(angular) {
 
@@ -23,38 +23,41 @@ function register(module) {
 /* @ngInject */
 function Ctrl($filter, $scope, $transclude, brAlertService) {
   var self = this;
-  self.loading = false;
-  self.searchOptions = {};
-  self.searchText = '';
-  self.display = {
-    helpButton: false,
-    helpText: false
-  };
 
-  self.display.helpButton = $transclude.isSlotFilled('help');
+  self.$onInit = function() {
+    self.loading = false;
+    self.searchOptions = {};
+    self.searchText = '';
+    self.display = {
+      helpButton: false,
+      helpText: false
+    };
 
-  var defaultOptions = {
-    searchbox: {
-      placeholder: 'Search...'
-    },
-    additional: [
-      // {
-      //   label: 'Issued',
-      //   placeholder: 'monday, tuesday',
-      //   prefix: 'issued'
-      // },
-      // {
-      //   label: 'From',
-      //   placeholder: 'sally, bob',
-      //   prefix: 'from'
-      // }
-    ]
+    self.display.helpButton = $transclude.isSlotFilled('help');
+
+    var defaultOptions = {
+      searchbox: {
+        placeholder: 'Search...'
+      },
+      additional: [
+        // {
+        //   label: 'Issued',
+        //   placeholder: 'monday, tuesday',
+        //   prefix: 'issued'
+        // },
+        // {
+        //   label: 'From',
+        //   placeholder: 'sally, bob',
+        //   prefix: 'from'
+        // }
+      ]
+    };
+    angular.extend(self.searchOptions, self.options, defaultOptions);
+    self.searchFields = {};
+    self.searchOptions.additional.forEach(function(field) {
+      self.searchFields[field.prefix] = '';
+    });
   };
-  angular.extend(self.searchOptions, self.options, defaultOptions);
-  self.searchFields = {};
-  self.searchOptions.additional.forEach(function(field) {
-    self.searchFields[field.prefix] = '';
-  });
 
   self.submitSearch = function() {
     brAlertService.clear();

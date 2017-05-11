@@ -1,5 +1,8 @@
 # bedrock-angular-searchbox ChangeLog
 
+### Fixed
+- Initialize component via `$onInit`.
+
 ## 1.1.0 - 2016-09-12
 
 ### Added
