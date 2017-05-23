@@ -1,17 +1,10 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
 // TODO: bikeshed name
-function register(module) {
-  module.filter('brSearchFilters', factory);
-}
 
 /* @ngInject */
-function factory() {
+export default function factory() {
   return filterSearchInput;
 }
 
@@ -42,7 +35,3 @@ function filterSearchInput(input) {
   }
   return output;
 }
-
-return register;
-
-});

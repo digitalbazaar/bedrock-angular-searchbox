@@ -1,24 +1,19 @@
 /*!
  * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define(['angular'], function(angular) {
+import angular from 'angular';
 
-'use strict';
-
-function register(module) {
-  module.component('brSearchbox', {
-    bindings: {
-      options: '<brOptions',
-      onSearch: '&brOnSearch'
-    },
-    controller: Ctrl,
-    templateUrl:
-      requirejs.toUrl('bedrock-angular-searchbox/searchbox-component.html'),
-    transclude: {
-      help: '?brSearchboxHelp'
-    }
-  });
-}
+export default {
+  bindings: {
+    options: '<brOptions',
+    onSearch: '&brOnSearch'
+  },
+  controller: Ctrl,
+  templateUrl: 'bedrock-angular-searchbox/searchbox-component.html',
+  transclude: {
+    help: '?brSearchboxHelp'
+  }
+};
 
 /* @ngInject */
 function Ctrl($filter, $scope, $transclude, brAlertService) {
@@ -101,7 +96,3 @@ function Ctrl($filter, $scope, $transclude, brAlertService) {
     }
   };
 }
-
-return register;
-
-});
