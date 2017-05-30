@@ -1,6 +1,6 @@
 {
   "name": "bedrock-angular-searchbox",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Front end input to handle and transform advanced search queries",
   "main": "index.js",
   "dependencies": {
