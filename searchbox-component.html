@@ -1,46 +1,42 @@
-<div class="row" style="margin: 0">
-  <form class="form-inline">
+<div>
+  <form>
     <br-input br-model="$ctrl.searchText"
       br-input-ng-disabled="$ctrl.loading"
       br-options="{
         icon: 'search',
         placeholder: $ctrl.searchOptions.searchbox.placeholder,
         inline: true,
-        columns: {input: $ctrl.display.helpButton ? 'col-xs-9' : 'col-xs-10'}
+        theme: 'material',
+        type: 'search'
       }">
     </br-input>
-    <span class="col-xs-1" style="padding: 0 0 0 5px">
-      <button class="btn btn-primary" style="width: 100%"
+    <span>
+      <md-button class="md-primary md-raised"
         ng-click="$ctrl.submitSearch()"
-        ng-disabled="$ctrl.loading">Search</button>
+        ng-disabled="$ctrl.loading">Search</md-button>
     </span>
-    <span class="col-xs-1" style="padding: 0 0 0 5px">
-      <button class="btn btn-default" style="width: 100%"
+    <span>
+      <md-button class="md-primary md-raised"
         ng-click="$ctrl.searchText=''"
-        ng-disabled="$ctrl.loading">Clear</button>
+        ng-disabled="$ctrl.loading">Clear</md-button>
     </span>
-    <span ng-if="$ctrl.display.helpButton" class="col-xs-1" style="padding: 0 0 0 5px">
-      <button class="btn btn-default" style="width: 100%"
+    <span ng-if="$ctrl.display.helpButton">
+      <md-button class="md-primary md-raised"
         ng-click="$ctrl.display.helpText=!$ctrl.display.helpText"
-        ng-disabled="$ctrl.loading">Help</button>
+        ng-disabled="$ctrl.loading">Help</md-button>
     </span>
   </form>
 </div>
 <div ng-if="$ctrl.display.helpText" ng-transclude="help"></div>
 <p></p>
-<form class="form-horizontal">
+<form>
   <fieldset>
-    <div ng-repeat="additionalInput in $ctrl.searchOptions.additional track by $index"
-      style="margin: 0 15px 0 15px">
+    <div ng-repeat="additionalInput in $ctrl.searchOptions.additional track by $index">
       <br-input br-model="$ctrl.searchFields[additionalInput.prefix]"
         br-input-ng-change="$ctrl.searchFieldChanged(additionalInput.prefix)"
         br-options="{
           label: additionalInput.label,
           placeholder: additionalInput.placeholder,
-          columns: {
-            label: 'col-xs-2',
-            input: 'col-xs-10'
-          },
           help: false
         }"></br-input>
     </div>

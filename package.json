@@ -2,11 +2,12 @@
   "name": "bedrock-angular-searchbox",
   "version": "2.0.1-0",
   "description": "Front end input to handle and transform advanced search queries",
-  "main": "index.js",
+  "browser": "index.js",
   "dependencies": {
     "angular": "~1.6.4",
     "bedrock-angular-alert": "^3.0.0",
-    "bedrock-angular-form": "^3.0.0"
+    "bedrock-angular-form": "^3.0.0",
+    "bedrock-angular-material": "^1.0.0"
   },
   "bedrock": {
     "browserDependencies": "all"
