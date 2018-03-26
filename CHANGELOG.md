@@ -1,5 +1,7 @@
 # bedrock-angular-searchbox ChangeLog
 
+## 3.0.0 - 2018-03-26
+
 ### Changed
 - **BREAKING**: Switch to material design.
 - Use ES6 syntax.
