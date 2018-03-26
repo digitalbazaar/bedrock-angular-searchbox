@@ -4,10 +4,10 @@
   "description": "Front end input to handle and transform advanced search queries",
   "browser": "index.js",
   "dependencies": {
-    "angular": "~1.6.4",
-    "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
-    "bedrock-angular-form": "^3.0.0",
-    "bedrock-angular-material": "^1.0.0"
+    "bedrock-angular": "^4.0.1",
+    "bedrock-angular-alert": "^4.0.0",
+    "bedrock-angular-form": "^4.0.0",
+    "bedrock-angular-material": "^1.0.3"
   },
   "bedrock": {
     "browserDependencies": "all"
