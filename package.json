@@ -7,7 +7,8 @@
     "bedrock-angular": "^4.0.1",
     "bedrock-angular-alert": "^4.0.0",
     "bedrock-angular-form": "^4.0.0",
-    "bedrock-angular-material": "^1.0.3"
+    "bedrock-angular-material": "^1.0.3",
+    "snyk": "^1.189.0"
   },
   "bedrock": {
     "browserDependencies": "all"
@@ -19,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/digitalbazaar/bedrock-angular-searchbox/issues"
   },
-  "homepage": "https://github.com/digitalbazaar/bedrock-angular-searchbox#readme"
+  "homepage": "https://github.com/digitalbazaar/bedrock-angular-searchbox#readme",
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
